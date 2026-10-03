@@ -186,7 +186,11 @@ Rules:
 - Do not invent experience, skills, education, or achievements.
 - Keep the analysis clear and useful for the candidate.
 """
-        client = genai.Client()
+
+    client = genai.Client()
+
+
+    
 
     for attempt in range(3):
         try:
@@ -206,8 +210,7 @@ def home():
 
     return {
         "message": "AI Resume Screener is running"
-    }
-
+    
 
 @app.post("/upload-resume")
 async def upload_resume(
