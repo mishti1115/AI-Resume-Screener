@@ -184,22 +184,14 @@ Rules:
 - Do not invent experience, skills, education, or achievements.
 - Keep the analysis clear and useful for the candidate.
 """
+client = genai.Client()
 
-    response = requests.post(
-        "http://localhost:11434/api/generate",
-        json={
-            "model": "llama3.2:3b",
-            "prompt": prompt,
-            "stream": False
-        },
-        timeout=120
-    )
+response = client.models.generate_content(
+    model="gemini-2.5-flash",
+    contents=prompt
+)
 
-    response.raise_for_status()
-
-    data = response.json()
-
-    return data["response"]
+return response.text
 
 
 @app.get("/")
