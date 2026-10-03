@@ -186,14 +186,15 @@ Rules:
 - Do not invent experience, skills, education, or achievements.
 - Keep the analysis clear and useful for the candidate.
 """
-       for attempt in range(3):
+        client = genai.Client()
+
+    for attempt in range(3):
         try:
             response = client.models.generate_content(
                 model="gemini-3.8-flash",
                 contents=prompt
             )
             return response.text
-
         except Exception:
             if attempt == 2:
                 raise
