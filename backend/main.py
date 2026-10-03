@@ -210,7 +210,7 @@ def home():
 
     return {
         "message": "AI Resume Screener is running"
-    
+    }
 
 @app.post("/upload-resume")
 async def upload_resume(
