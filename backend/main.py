@@ -184,14 +184,14 @@ Rules:
 - Do not invent experience, skills, education, or achievements.
 - Keep the analysis clear and useful for the candidate.
 """
-client = genai.Client()
+    client = genai.Client()
 
-response = client.models.generate_content(
-    model="gemini-2.5-flash",
-    contents=prompt
-)
+    response = client.models.generate_content(
+        model="gemini-2.5-flash",
+        contents=prompt
+    )
 
-return response.text
+    return response.text
 
 
 @app.get("/")
